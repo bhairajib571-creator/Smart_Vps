@@ -1,0 +1,13 @@
+[providers]
+  node = true
+  python = true
+
+[phases.setup]
+  nixPkgs = ["nodejs_18", "python3Full", "git"]
+  cmds = ["npm install", "if [ -f requirements.txt ]; then pip install -r requirements.txt --break-system-packages; else echo 'No requirements.txt found'; fi"]
+
+[phases.build]
+  cmds = ["npm run build"]
+
+[phases.start]
+  cmd = "npm run start"
