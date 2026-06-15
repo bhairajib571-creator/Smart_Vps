@@ -1,0 +1,6 @@
+{
+  "name": "SMART VPS",
+  "description": "কম টাকায় সেরা VPS প্রোভাইডার",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
