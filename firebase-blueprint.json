@@ -1,0 +1,30 @@
+{
+  "entities": {
+    "BotLog": {
+      "title": "Bot Log",
+      "description": "Log entry for a bot run.",
+      "type": "object",
+      "properties": {
+        "botName": {
+          "type": "string",
+          "description": "Name of the script"
+        },
+        "logMessage": {
+          "type": "string",
+          "description": "Log output"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Time of log"
+        }
+      },
+      "required": ["botName", "logMessage", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/botLogs/{logId}": {
+      "schema": "BotLog",
+      "description": "Collection storing bot logs for persistent history."
+    }
+  }
+}
