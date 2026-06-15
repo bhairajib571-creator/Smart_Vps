@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    match /botLogs/{logId} {
+      allow read: if true; 
+      allow create: if request.resource.data.keys().hasAll(['botName', 'logMessage', 'timestamp'])
+                    && request.resource.data.botName is string
+                    && request.resource.data.botName.size() > 0
+                    && request.resource.data.botName.size() <= 128
+                    && request.resource.data.logMessage is string
+                    && request.resource.data.logMessage.size() <= 10000
+                    && request.resource.data.timestamp is number;
+      allow update, delete: if false;
+    }
+
+    match /geminiKeys/{keyId} {
+      allow read, write: if true;
+    }
+  }
+}
