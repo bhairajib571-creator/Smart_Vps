@@ -1,0 +1,11 @@
+node_modules
+dist
+.vscode
+.idea
+*.log
+*.sqlite
+*.db
+!users/
+!web_uploads/
+!upload_bots/
+pip_status.txt
